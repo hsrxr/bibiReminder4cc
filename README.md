@@ -1,9 +1,13 @@
-# bibiReminder4cc 🔔
+<p align="center">
+  <img src="media/logo.svg" alt="bibiReminder4cc logo" width="500">
+</p>
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
-[![Node](https://img.shields.io/badge/node-%3E%3D14-339933?logo=node.js&logoColor=white)](package.json)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey)]()
-[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)]()
+<p align="center">
+  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue.svg" alt="License: MIT"></a>
+  <a href="package.json"><img src="https://img.shields.io/badge/node-%3E%3D14-339933?logo=node.js&logoColor=white" alt="Node"></a>
+  <img src="https://img.shields.io/badge/platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey" alt="Platform">
+  <img src="https://img.shields.io/badge/PRs-welcome-brightgreen" alt="PRs Welcome">
+</p>
 
 **Audible beep notifications for Claude Code.** Alt-tab freely — distinct beep sounds tell you exactly when CC needs your attention.
 

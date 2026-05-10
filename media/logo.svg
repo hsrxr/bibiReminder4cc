@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="800" height="400">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="speaker-grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e6edf3"/>
+      <stop offset="100%" stop-color="#b1bac4"/>
+    </linearGradient>
+    <linearGradient id="wave-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#56d364"/>
+      <stop offset="100%" stop-color="#2ea043"/>
+    </linearGradient>
+    <linearGradient id="wave-grad-2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d29922"/>
+      <stop offset="100%" stop-color="#9e6a03"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="200" fill="url(#bg)" rx="24"/>
+
+  <!-- Outer ring -->
+  <circle cx="100" cy="100" r="72" fill="none" stroke="#21262d" stroke-width="2"/>
+
+  <!-- Speaker body -->
+  <rect x="75" y="70" width="42" height="55" rx="6" fill="url(#speaker-grad)"/>
+  <path d="M75 85 L55 85 L55 110 L75 110" fill="url(#speaker-grad)"/>
+
+  <!-- Speaker cone -->
+  <path d="M117 80 Q140 80 140 97 Q140 115 117 115" fill="none" stroke="url(#speaker-grad)" stroke-width="3.5" stroke-linecap="round"/>
+
+  <!-- Sound waves - green (done) -->
+  <path d="M148 88 Q160 97 148 107" fill="none" stroke="url(#wave-grad)" stroke-width="3" stroke-linecap="round" opacity="0.9"/>
+  <path d="M158 82 Q175 97 158 113" fill="none" stroke="url(#wave-grad)" stroke-width="3" stroke-linecap="round" opacity="0.65"/>
+  <path d="M168 75 Q190 97 168 120" fill="none" stroke="url(#wave-grad)" stroke-width="2.5" stroke-linecap="round" opacity="0.4"/>
+
+  <!-- Sound waves - yellow (allow) -->
+  <path d="M155 125 Q165 118 155 110" fill="none" stroke="url(#wave-grad-2)" stroke-width="2.5" stroke-linecap="round" opacity="0.8"/>
+  <path d="M163 130 Q177 118 163 105" fill="none" stroke="url(#wave-grad-2)" stroke-width="2.5" stroke-linecap="round" opacity="0.55"/>
+  <path d="M171 135 Q189 118 171 100" fill="none" stroke="url(#wave-grad-2)" stroke-width="2" stroke-linecap="round" opacity="0.35"/>
+
+  <!-- Speaker face -->
+  <circle cx="88" cy="92" r="3.5" fill="#1f2937"/>
+  <circle cx="100" cy="92" r="3.5" fill="#1f2937"/>
+
+  <!-- Smile -->
+  <path d="M90 101 Q95 107 100 101" fill="none" stroke="#1f2937" stroke-width="2" stroke-linecap="round"/>
+
+  <!-- Blush -->
+  <ellipse cx="82" cy="100" rx="5" ry="3" fill="#f78166" opacity="0.25"/>
+  <ellipse cx="108" cy="100" rx="5" ry="3" fill="#f78166" opacity="0.25"/>
+
+  <!-- Title -->
+  <text x="280" y="86" text-anchor="middle" fill="#e6edf3" font-family="system-ui, sans-serif" font-size="28" font-weight="700" letter-spacing="0.5">bibiReminder4cc</text>
+
+  <!-- Tagline -->
+  <text x="280" y="116" text-anchor="middle" fill="#8b949e" font-family="system-ui, sans-serif" font-size="13" letter-spacing="0.3">Audible notifications for Claude Code</text>
+
+  <!-- Tag badges -->
+  <rect x="220" y="132" width="50" height="20" rx="6" fill="#1f2937" stroke="#30363d" stroke-width="1"/>
+  <text x="245" y="145" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="9" font-weight="600">Stop</text>
+
+  <rect x="278" y="132" width="50" height="20" rx="6" fill="#1f2937" stroke="#30363d" stroke-width="1"/>
+  <text x="303" y="145" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="9" font-weight="600">Allow</text>
+
+  <rect x="286" y="158" width="72" height="18" rx="6" fill="#1f2937" stroke="#30363d" stroke-width="1"/>
+  <text x="322" y="170" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="8">zero deps</text>
+
+  <!-- Tiny speaker note -->
+  <g transform="translate(32, 165)">
+    <text x="0" y="0" fill="#484f58" font-family="monospace" font-size="7">♪ bibi!</text>
+  </g>
+</svg>
