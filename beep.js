@@ -5,11 +5,11 @@ const MODE = process.argv[2] || 'done';
 
 const PATTERNS = {
   done: [
-    { freq: 1200, duration: 150, gap: 120 },
+    { freq: 1200, duration: 150, gap: 40 },
     { freq: 1500, duration: 150, gap: 0 },
   ],
   allow: [
-    { freq: 600, duration: 200, gap: 120 },
+    { freq: 600, duration: 200, gap: 40 },
     { freq: 500, duration: 200, gap: 0 },
   ],
 };
