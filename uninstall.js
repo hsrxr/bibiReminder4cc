@@ -3,25 +3,25 @@ const fs = require('fs');
 const path = require('path');
 const os = require('os');
 
-const isGlobal = process.argv.includes('--global');
+const isLocal = process.argv.includes('--local');
 
 function eprintf(...args) {
   process.stderr.write(args.join(' ') + '\n');
 }
 
 function getPaths() {
-  if (isGlobal) {
-    const home = os.homedir();
-    const claudeDir = path.join(home, '.claude');
+  if (isLocal) {
+    const cwd = process.cwd();
     return {
-      hooksDir: path.join(claudeDir, 'hooks'),
-      settingsFile: path.join(claudeDir, 'settings.local.json'),
+      hooksDir: path.join(cwd, '.claude', 'hooks'),
+      settingsFile: path.join(cwd, '.claude', 'settings.local.json'),
     };
   }
-  const cwd = process.cwd();
+  const home = os.homedir();
+  const claudeDir = path.join(home, '.claude');
   return {
-    hooksDir: path.join(cwd, '.claude', 'hooks'),
-    settingsFile: path.join(cwd, '.claude', 'settings.local.json'),
+    hooksDir: path.join(claudeDir, 'hooks'),
+    settingsFile: path.join(claudeDir, 'settings.local.json'),
   };
 }
 
@@ -102,7 +102,7 @@ function main() {
   } catch {}
 
   // Summary
-  console.log('✓ bibiReminder4cc uninstalled' + (isGlobal ? ' (global)' : ''));
+  console.log('✓ bibiReminder4cc uninstalled' + (isLocal ? ' (project-level)' : ' (global)'));
   if (settingsChanged) console.log('  ~ Hooks removed from settings');
   else console.log('  ~ No hooks found in settings');
   if (beepDeleted) console.log('  ~ beep.js deleted');

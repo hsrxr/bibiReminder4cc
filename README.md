@@ -29,13 +29,10 @@ Each event has its own distinct sound so you know what's happening without looki
 ## ⚡ Quick Start
 
 ```bash
-# Clone and install (project level)
+# One-time setup — works for ALL your projects
 git clone https://github.com/hsrxr/bibiReminder4cc.git
 cd bibiReminder4cc
 node install.js
-
-# Or install globally (for all projects)
-node install.js --global
 ```
 
 That's it. The next time Claude Code finishes a task or hits a permission prompt, you'll hear it.
@@ -69,17 +66,21 @@ graph LR
 ```
 
 **The installer:**
-1. Adds `Stop` and `PermissionRequest` hooks to `.claude/settings.local.json`
-2. Copies `beep.js` to `.claude/hooks/beep.js`
-3. That's it — zero config, zero npm dependencies
+1. Installs globally to `~/.claude/` by default — works for **all** your projects
+2. Adds `Stop` and `PermissionRequest` hooks to `~/.claude/settings.local.json`
+3. Copies `beep.js` to `~/.claude/hooks/beep.js`
+4. That's it — zero config, zero npm dependencies
+
+> Use `node install.js --local` to install only for the current project (`.claude/settings.local.json`),
+> useful if you want to share the config with teammates via git.
 
 ---
 
 ## 🗑️ Uninstall
 
 ```bash
-node uninstall.js           # Remove from current project
-node uninstall.js --global  # Remove global install
+node uninstall.js          # Remove global install
+node uninstall.js --local  # Remove per-project install
 ```
 
 ---
@@ -112,17 +113,15 @@ node uninstall.js --global  # Remove global install
 
 ---
 
-## 📁 What Gets Modified
+## 📁 What Gets Modified (global install)
 
-Only **one file** is modified:
+**`~/.claude/settings.local.json`** — `hooks` section is added. Your existing settings are untouched.
 
-- **`.claude/settings.local.json`** — the `hooks` section is added. All existing settings (`permissions`, etc.) are preserved exactly as-is.
+**`~/.claude/hooks/beep.js`** — the cross-platform beep script.
 
-One file is created:
+Everything stays in `~/.claude/`, out of your project's way.
 
-- **`.claude/hooks/beep.js`** — the cross-platform beep script (52 lines, zero dependencies).
-
-Both are local to the project and won't affect other projects (unless you use `--global`).
+> For per-project install (`--local`), the files go into `.claude/` within that project.
 
 ---
 

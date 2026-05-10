@@ -4,39 +4,39 @@ const path = require('path');
 const os = require('os');
 const { execSync } = require('child_process');
 
-const isGlobal = process.argv.includes('--global');
+const isLocal = process.argv.includes('--local');
 
 function eprintf(...args) {
   process.stderr.write(args.join(' ') + '\n');
 }
 
 function getPaths() {
-  if (isGlobal) {
-    const home = os.homedir();
-    const claudeDir = path.join(home, '.claude');
+  if (isLocal) {
+    const cwd = process.cwd();
     return {
-      claudeDir,
-      hooksDir: path.join(claudeDir, 'hooks'),
-      settingsFile: path.join(claudeDir, 'settings.local.json'),
-      hooksDirRel: path.join(claudeDir, 'hooks'),
+      claudeDir: path.join(cwd, '.claude'),
+      hooksDir: path.join(cwd, '.claude', 'hooks'),
+      settingsFile: path.join(cwd, '.claude', 'settings.local.json'),
+      hooksDirRel: path.join('.claude', 'hooks'),
     };
   }
-  const cwd = process.cwd();
+  const home = os.homedir();
+  const claudeDir = path.join(home, '.claude');
   return {
-    claudeDir: path.join(cwd, '.claude'),
-    hooksDir: path.join(cwd, '.claude', 'hooks'),
-    settingsFile: path.join(cwd, '.claude', 'settings.local.json'),
-    hooksDirRel: path.join('.claude', 'hooks'),
+    claudeDir,
+    hooksDir: path.join(claudeDir, 'hooks'),
+    settingsFile: path.join(claudeDir, 'settings.local.json'),
+    hooksDirRel: path.join(claudeDir, 'hooks'),
   };
 }
 
 function getHookCommand(hooksDir, pattern) {
   const normalize = (p) => p.split(path.sep).join('/');
-  if (isGlobal) {
-    const scriptPath = normalize(path.join(hooksDir, 'beep.js'));
-    return `node "${scriptPath}" ${pattern}`;
+  if (isLocal) {
+    return `node ".claude/hooks/beep.js" ${pattern}`;
   }
-  return `node ".claude/hooks/beep.js" ${pattern}`;
+  const scriptPath = normalize(path.join(hooksDir, 'beep.js'));
+  return `node "${scriptPath}" ${pattern}`;
 }
 
 function readSettings(file) {
@@ -93,7 +93,7 @@ function addHook(settings, event, command) {
 }
 
 function main() {
-  if (!isGlobal) {
+  if (isLocal) {
     const srcCheck = path.join(__dirname, 'beep.js');
     if (!fs.existsSync(srcCheck)) {
       eprintf('Error: beep.js not found in current directory.');
@@ -124,7 +124,7 @@ function main() {
   fs.writeFileSync(settingsFile, JSON.stringify(settings, null, 2) + '\n');
 
   // Summary
-  console.log('✓ bibiReminder4cc installed' + (isGlobal ? ' (global)' : ''));
+  console.log('✓ bibiReminder4cc installed' + (isLocal ? ' (project-level)' : ' (global)'));
   console.log('  Settings:', settingsFile);
   if (addedDone) console.log('  + Stop hook: ' + cmdDone);
   else console.log('  ~ Stop hook: already present');
