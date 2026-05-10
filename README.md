@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="media/logo.svg" alt="bibiReminder4cc logo" width="500">
+  <img src="media/bbr4cc.png" alt="bibiReminder4cc logo" width="500">
 </p>
 
 <p align="center">
@@ -137,7 +137,8 @@ bibiReminder4cc/
 ├── README.md        # This file
 ├── LICENSE          # MIT
 └── media/
-    └── beep-patterns.svg  # Sound pattern visualization
+    ├── bbr4cc.png            # Project logo
+    └── beep-patterns.svg     # Sound pattern visualization
 ```
 
 ---
