@@ -25,7 +25,7 @@ function getPaths() {
   return {
     claudeDir,
     hooksDir: path.join(claudeDir, 'hooks'),
-    settingsFile: path.join(claudeDir, 'settings.local.json'),
+    settingsFile: path.join(claudeDir, 'settings.json'),
     hooksDirRel: path.join(claudeDir, 'hooks'),
   };
 }

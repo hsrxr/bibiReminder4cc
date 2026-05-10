@@ -67,7 +67,7 @@ graph LR
 
 **The installer:**
 1. Installs globally to `~/.claude/` by default — works for **all** your projects
-2. Adds `Stop` and `PermissionRequest` hooks to `~/.claude/settings.local.json`
+2. Adds `Stop` and `PermissionRequest` hooks to `~/.claude/settings.json`
 3. Copies `beep.js` to `~/.claude/hooks/beep.js`
 4. That's it — zero config, zero npm dependencies
 
@@ -115,7 +115,7 @@ node uninstall.js --local  # Remove per-project install
 
 ## 📁 What Gets Modified (global install)
 
-**`~/.claude/settings.local.json`** — `hooks` section is added. Your existing settings are untouched.
+**`~/.claude/settings.json`** — `hooks` section is added. Your existing settings are untouched.
 
 **`~/.claude/hooks/beep.js`** — the cross-platform beep script.
 
