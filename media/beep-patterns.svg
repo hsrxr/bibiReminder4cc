@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 300" width="640" height="300">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#161b22"/>
+      <stop offset="100%" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="bar-done-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#56d364"/>
+      <stop offset="100%" stop-color="#2ea043"/>
+    </linearGradient>
+    <linearGradient id="bar-done-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#3fb950"/>
+      <stop offset="100%" stop-color="#238636"/>
+    </linearGradient>
+    <linearGradient id="bar-allow-1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#d29922"/>
+      <stop offset="100%" stop-color="#9e6a03"/>
+    </linearGradient>
+    <linearGradient id="bar-allow-2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#bb8009"/>
+      <stop offset="100%" stop-color="#845306"/>
+    </linearGradient>
+    <filter id="glow-green">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glow-yellow">
+      <feGaussianBlur stdDeviation="2" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="640" height="300" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="320" y="32" text-anchor="middle" fill="#e6edf3" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="600" letter-spacing="1">SOUND PATTERNS</text>
+  <line x1="30" y1="44" x2="610" y2="44" stroke="#30363d" stroke-width="1" stroke-dasharray="4,4"/>
+
+  <!-- Divider -->
+  <line x1="320" y1="55" x2="320" y2="270" stroke="#21262d" stroke-width="1"/>
+
+  <!-- ===== LEFT: DONE ===== -->
+  <g transform="translate(0,0)">
+    <!-- Label -->
+    <rect x="95" y="55" width="130" height="22" rx="11" fill="#0d5326" opacity="0.6"/>
+    <text x="160" y="70" text-anchor="middle" fill="#7ee787" font-family="system-ui, sans-serif" font-size="11" font-weight="600">✓ Task Complete</text>
+
+    <!-- Wave icon -->
+    <text x="70" y="130" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="24">~</text>
+    <text x="252" y="130" text-anchor="middle" fill="#3fb950" font-family="monospace" font-size="24">~</text>
+
+    <!-- Bar 1: 1200Hz -->
+    <rect x="105" y="148" width="46" height="100" rx="3" fill="url(#bar-done-1)" filter="url(#glow-green)"/>
+    <text x="128" y="263" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="10">1200 Hz</text>
+    <text x="128" y="142" text-anchor="middle" fill="#e6edf3" font-family="system-ui, sans-serif" font-size="10" font-weight="600">150ms</text>
+
+    <!-- Bar 2: 1500Hz -->
+    <rect x="178" y="128" width="46" height="120" rx="3" fill="url(#bar-done-2)" filter="url(#glow-green)"/>
+    <text x="201" y="263" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="10">1500 Hz</text>
+    <text x="201" y="122" text-anchor="middle" fill="#e6edf3" font-family="system-ui, sans-serif" font-size="10" font-weight="600">150ms</text>
+
+    <!-- Gap arrow -->
+    <line x1="151" y1="210" x2="178" y2="210" stroke="#484f58" stroke-width="1" marker-end="url(#arrow)"/>
+    <text x="164" y="224" text-anchor="middle" fill="#484f58" font-family="monospace" font-size="9">40ms</text>
+
+    <!-- Play arrow -->
+    <polygon points="260,195 278,203 260,211" fill="#3fb950" opacity="0.4"/>
+  </g>
+
+  <!-- ===== RIGHT: ALLOW ===== -->
+  <g transform="translate(0,0)">
+    <!-- Label -->
+    <rect x="415" y="55" width="130" height="22" rx="11" fill="#7a5d0b" opacity="0.6"/>
+    <text x="480" y="70" text-anchor="middle" fill="#d29922" font-family="system-ui, sans-serif" font-size="11" font-weight="600">! Permission Needed</text>
+
+    <!-- Wave icon -->
+    <text x="390" y="150" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="20">~</text>
+    <text x="572" y="150" text-anchor="middle" fill="#d29922" font-family="monospace" font-size="20">~</text>
+
+    <!-- Bar 1: 600Hz -->
+    <rect x="420" y="195" width="46" height="53" rx="3" fill="url(#bar-allow-1)" filter="url(#glow-yellow)"/>
+    <text x="443" y="263" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="10">600 Hz</text>
+    <text x="443" y="189" text-anchor="middle" fill="#e6edf3" font-family="system-ui, sans-serif" font-size="10" font-weight="600">200ms</text>
+
+    <!-- Bar 2: 500Hz -->
+    <rect x="498" y="203" width="46" height="45" rx="3" fill="url(#bar-allow-2)" filter="url(#glow-yellow)"/>
+    <text x="521" y="263" text-anchor="middle" fill="#8b949e" font-family="monospace" font-size="10">500 Hz</text>
+    <text x="521" y="197" text-anchor="middle" fill="#e6edf3" font-family="system-ui, sans-serif" font-size="10" font-weight="600">200ms</text>
+
+    <!-- Gap arrow -->
+    <line x1="466" y1="228" x2="498" y2="228" stroke="#484f58" stroke-width="1"/>
+    <text x="482" y="242" text-anchor="middle" fill="#484f58" font-family="monospace" font-size="9">40ms</text>
+
+    <!-- Play arrow -->
+    <polygon points="580,215 598,223 580,231" fill="#d29922" opacity="0.4"/>
+  </g>
+
+  <!-- Ear icon at bottom -->
+  <g transform="translate(300, 270)">
+    <circle cx="0" cy="0" r="8" fill="#30363d" opacity="0.5"/>
+    <text x="0" y="3" text-anchor="middle" fill="#484f58" font-family="monospace" font-size="8">♪</text>
+  </g>
+</svg>
