@@ -1,0 +1,26 @@
+{
+  "name": "bibireminder4cc",
+  "version": "1.0.0",
+  "description": "Audible beep notifications for Claude Code — alerts you when CC finishes a task or waits for permission",
+  "keywords": ["claude-code", "hooks", "notification", "beep", "claude"],
+  "homepage": "https://github.com/hsrxr/bibiReminder4cc",
+  "license": "MIT",
+  "author": "",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hsrxr/bibiReminder4cc.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hsrxr/bibiReminder4cc/issues"
+  },
+  "files": [
+    "beep.js",
+    "install.js",
+    "uninstall.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
